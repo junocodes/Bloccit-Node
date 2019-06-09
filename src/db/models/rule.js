@@ -4,7 +4,16 @@ module.exports = (sequelize, DataTypes) => {
     "Rule",
     {
       source: DataTypes.STRING,
-      description: DataTypes.STRING
+      description: DataTypes.STRING,
+      topicId: {
+        type: DataTypes.INTEGER,
+        onDelete: "CASCADE",
+        references: {
+          model: "Topics",
+          key: "id",
+          as: "topicId"
+        }
+      }
     },
     {}
   );
